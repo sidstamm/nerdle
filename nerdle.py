@@ -12,7 +12,8 @@
 # February 2022
 
 import random
-from colors import *
+from random import sample
+from colors import * # this is from the ansicolors package
 
 with open("/usr/share/dict/words") as f:
 
@@ -24,7 +25,7 @@ with open("/usr/share/dict/words") as f:
     print("loaded %d words" % (len(candidates)))
 
     # Pick the NERDLE
-    ANSWER = random.sample(candidates,1)[0]
+    ANSWER = sample(candidates,1)[0]
 
     def anyInRightPlace(c, guess, target):
         return any([x == c and x == y for x,y in zip(guess,target)])
